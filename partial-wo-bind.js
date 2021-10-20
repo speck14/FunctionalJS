@@ -8,8 +8,6 @@ function logger(namespace) {
 }
 module.exports = logger;
 
-console.log(console)
-
 /* Official solution: 
 var slice = Array.prototype.slice
 
