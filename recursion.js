@@ -1,6 +1,7 @@
 'use strict'
 
-/*function countWords(inputWords) {
+/*Reduce function for reference
+function countWords(inputWords) {
   return inputWords.reduce(function(wordObj, curr) {
     if(wordObj.hasOwnProperty(curr)){
         wordObj[curr] +=1;
