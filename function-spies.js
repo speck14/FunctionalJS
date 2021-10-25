@@ -3,31 +3,30 @@ function Spy(target, method) {
   let original = target[method];
   target[method] = function(...args) {
     tracker.count++
-    console.log(tracker.count)
     return original.apply(target, args)
   }
-  console.log("After func: ", tracker.count)
   return tracker;
 }
 module.exports = Spy;
 
-/* function Spy(target, method) {
-  var originalFunction = target[method]
 
-  // use an object so we can pass by reference, not value
-  // i.e. we can return result, but update count from this scope
-  var result = {
-    count: 0
-  }
+/* Official solution:
+   function Spy(target, method) {
+      var originalFunction = target[method]
 
-  // replace method with spy method
-  target[method] = function() {
-    result.count++ // track function was called
-    console.log(`In spy: ${result.count}`)
-    return originalFunction.apply(this, arguments) // invoke original function
-  }
-  console.log(`After: ${result.count}`)
-  return result
-}
+      // use an object so we can pass by reference, not value
+      // i.e. we can return result, but update count from this scope
+      var result = {
+        count: 0
+      }
 
-module.exports = Spy */
+      // replace method with spy method
+      target[method] = function() {
+        result.count++ // track function was called
+        return originalFunction.apply(this, arguments) // invoke original function
+      }
+
+      return result
+    }
+
+    module.exports = Spy*/
