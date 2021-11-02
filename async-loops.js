@@ -5,12 +5,17 @@ empty function will pass
 'use strict'
 
 function loadUsers(userIds, load, done) {
+  let completed = 0;
   let users = []
   userIds.forEach(function (id, index) {
     load(id, function (user) {
       users[index] = user;
+      completed+= 1;
     })
   })
+  if (userIds.length() === completed) {
+    return done(users);
+  }
 }
 
 module.exports = loadUsers
